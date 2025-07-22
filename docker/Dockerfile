@@ -389,8 +389,10 @@ RUN --mount=type=bind,from=build,src=/workspace/dist,target=/vllm-workspace/dist
 # $ # upload the wheel to a public location, e.g. https://wheels.vllm.ai/flashinfer/v0.2.6.post1/flashinfer_python-0.2.6.post1-cp39-abi3-linux_x86_64.whl
 
 # Install FlashInfer from source
-ARG FLASHINFER_GIT_REPO="https://github.com/flashinfer-ai/flashinfer.git"
-ARG FLASHINFER_GIT_REF="v0.2.8rc1"
+# ARG FLASHINFER_GIT_REPO="https://github.com/flashinfer-ai/flashinfer.git"
+# ARG FLASHINFER_GIT_REF="v0.2.8rc1"
+ARG FLASHINFER_GIT_REPO="https://github.com/jiefangz-nv/flashinfer.git"
+ARG FLASHINFER_GIT_REF="jiefangz-nv/scout-fp8-patch"
 RUN --mount=type=cache,target=/root/.cache/uv bash - <<'BASH'
   . /etc/environment
     git clone --depth 1 --recursive --shallow-submodules \
